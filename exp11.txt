@@ -1,0 +1,25 @@
+import java.util.*;
+import java.io.File;
+
+public class exp11 {
+    public static void main(String[] args){
+        Scanner in =new Scanner(System.in);
+        System.out.println("Enter the file name : ");
+        String fname=in.next();
+        File f=new File(fname);
+        f.setWritable(true);
+        System.out.println(f.exists()?"File Exists." : "File doesn't exists.");
+        System.out.println(f.canWrite()?"File is writable .": "File is not writable");
+        System.out.println(f.canRead()?"File is readable.":"File is not readable");
+        String filename=f.toString();
+        int index=filename.lastIndexOf('.');
+        if(index>0){
+            String type=filename.substring(index+1);
+            System.out.println("File type is : "+type);
+        }
+        else
+            System.out.println("File doesn't have any type.");
+        System.out.println("File Size : "+f.length()+" Bytes");
+        in.close();
+    }
+}

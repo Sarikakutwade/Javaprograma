@@ -1,0 +1,122 @@
+import java.util.Scanner;
+
+class staff {
+    String staffID, Name, Salary, Phone;
+    Scanner in = new Scanner(System.in);
+
+    void read() {
+        System.out.print("Enter Staff ID : ");
+        staffID = in.nextLine();
+        System.out.print("Enter Name : ");
+        Name = in.nextLine();
+        System.out.print("Enter Salary : ");
+        Salary = in.nextLine();
+        System.out.print("Enter Phone number : ");
+        Phone = in.nextLine();
+    }
+
+    void display() {
+        System.out.printf("\n%-15s", "STAFF ID");
+        System.out.printf("%-15s", staffID);
+        System.out.printf("\n%-15s", "NAME");
+        System.out.printf("%-15s", Name);
+        System.out.printf("\n%-15s", "Phone NUMBER");
+        System.out.printf("%-15s", Phone);
+        System.out.printf("\n%-15s", "SALARY");
+        System.out.printf("%-15s", Salary);
+    }
+}
+
+class teaching extends staff {
+    String domain, publication;
+
+    void read_teach() {
+        super.read();
+        System.out.print("Enter Domain: ");
+        domain = in.nextLine();
+        System.out.print("Enter Publication  : ");
+        publication = in.nextLine();
+    }
+
+    void display() {
+        super.display();
+        System.out.printf("\n%-15s", "DOMAIN");
+        System.out.printf("%-15s", domain);
+        System.out.printf("\n%-15s", "PUBLICATION");
+        System.out.printf("%-15s", publication);
+    }
+}
+
+class technical extends staff {
+    String skills;
+
+    void read_tech() {
+        super.read();
+        System.out.print("Enter Skills  : ");
+        skills = in.nextLine();
+    }
+
+    void display() {
+        super.display();
+        System.out.printf("\n%-15s", "SKILLS");
+        System.out.printf("%-15s", skills);
+    }
+}
+
+class contract extends staff {
+    String period;
+
+    void read_con() {
+        super.read();
+        System.out.print("Enter Contract period : ");
+        period = in.nextLine();
+    }
+
+    void display() {
+        super.display();
+        System.out.printf("\n%-15s", "PERIOD");
+        System.out.printf("%-15s", period);
+    }
+}
+
+class staffdetails {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter number of staff details to be created : ");
+        int n = in.nextInt();
+        teaching steach[] = new teaching[n];
+        technical stech[] = new technical[n];
+        contract scon[] = new contract[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter Teaching staff details : ");
+            steach[i] = new teaching();
+            steach[i].read_teach();
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter Technical staff details : ");
+            stech[i] = new technical();
+            stech[i].read_tech();
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter Contract staff details : ");
+            scon[i] = new contract();
+            scon[i].read_con();
+        }
+        System.out.println("-------STAFF DETAILS-------");
+        System.out.println("-------TEACHING STAFF DETAILS-------");
+        for (int i = 0; i < n; i++) {
+            steach[i].display();
+        }
+        System.out.println("\n");
+        System.out.println("-------TECHNICAL STAFF DETAILS-------");
+        for (int i = 0; i < n; i++) {
+            stech[i].display();
+        }
+        System.out.println("\n");
+        System.out.println("-------CONTRACT STAFF DETAILS-------");
+        for (int i = 0; i < n; i++) {
+            scon[i].display();
+        }
+        System.out.println("\n");
+    }
+}

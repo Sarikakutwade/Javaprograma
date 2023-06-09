@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Prime1{
+    public static void main(String[] args){
+        int n,i,flag=0;
+        Scanner in =new Scanner(System.in);
+        System.out.print("Enter the Number to ber checked : ");
+        n=in.nextInt();
+        for(i=2;i<n;i++){
+            if(n%i==0){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0)
+            System.out.print(n+ " is a Prime number.\n");
+        else
+            System.out.print(n+ " is not a Prime number.\n");
+    }
+}

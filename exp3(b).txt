@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class calci{
+    public static void main(String args[]){
+        int n1,n2,res;
+        char op;
+        Scanner in=new Scanner(System.in);
+        System.out.print("Enter an arithmetic expression[operand1,operator,operand2] : ");
+        n1=in.nextInt();
+        op=in.next().charAt(0);
+        n2=in.nextInt();
+        switch(op){
+            case '+':res=n1+n2;
+                    System.out.print(n1+ " + " +n2+ " = " +res);
+                    break;
+            case '-':res=n1-n2;
+                    System.out.print(n1+ " - " +n2+ " = " +res);
+                    break;
+            case '*':res=n1*n2;
+                    System.out.print(n1+ " * " +n2+ " = " +res);
+                    break;
+            case '%':res=n1%n2;
+                    System.out.print(n1+ " % " +n2+ " = " +res);
+                    break;
+            case '/':if(n2==0)
+                        System.out.printf("Divide by zero error !....\n");
+                    else{
+                        res=n1/n2;
+                        System.out.print(n1+ " / " +n2+ " = " +res);
+                        break;
+                    }
+            default:System.out.printf("Invalid operator!....\n");
+                    break;
+
+        }
+    }
+}
